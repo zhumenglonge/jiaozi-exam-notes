@@ -486,3 +486,137 @@
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ==================== 响应式：触屏 & 移动端 ==================== */
+
+/* 触屏设备：加大点击区域，输入框字号≥​16px 防止 iOS 聚焦自动放大 */
+@media (hover: none) and (pointer: coarse) {
+  .option-item {
+    padding: 0.85rem 1rem;
+  }
+  .btn-row button {
+    padding: 0.65em 1.1em;
+  }
+  .back-btn {
+    padding: 0.55em 1em;
+  }
+  .note-section textarea {
+    font-size: 16px;
+  }
+}
+
+/* 平板 / 大屏手机 (≤​768px) */
+@media (max-width: 768px) {
+  .app {
+    padding: 1.2rem 1.1rem 2.5rem;
+  }
+  .app-header h1 {
+    font-size: 1.6rem;
+  }
+  .subtitle {
+    font-size: 0.88rem;
+    padding: 0 0.6rem;
+  }
+  .home-stats {
+    gap: 1rem;
+    margin: 0.4rem 0 1.5rem;
+  }
+
+  /* 卡片网格改为单列，避免 minmax(280px) 在窄屏挤压 */
+  .topic-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .topic-header {
+    gap: 0.7rem;
+  }
+  .topic-header-info h2 {
+    font-size: 1.05rem;
+  }
+
+  .question-card {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  .material-card {
+    padding: 1.1rem;
+  }
+  .material-section {
+    padding: 0.9rem 1rem;
+  }
+  .material-content p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+  .reference-answer {
+    padding: 0.9rem 1rem;
+  }
+}
+
+/* 小屏手机 (≤​480px) */
+@media (max-width: 480px) {
+  .app {
+    padding: 1rem 0.8rem 2rem;
+  }
+  .app-header {
+    margin-bottom: 1rem;
+  }
+  .app-header h1 {
+    font-size: 1.35rem;
+  }
+  .subtitle {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  .home-stats {
+    gap: 0.8rem;
+    font-size: 0.82rem;
+  }
+
+  .topic-header {
+    flex-wrap: wrap;
+  }
+  .back-btn {
+    font-size: 0.8rem;
+  }
+  .topic-header-info h2 {
+    font-size: 1rem;
+  }
+
+  .question-card {
+    padding: 0.9rem 0.85rem;
+    margin-bottom: 1rem;
+  }
+  .question-card h4 {
+    font-size: 0.95rem;
+  }
+  .material-card {
+    padding: 1rem 0.85rem;
+  }
+  .material-content p {
+    text-indent: 1.5em;
+    font-size: 0.88rem;
+  }
+  .question-stem {
+    padding: 0.7rem 0.85rem;
+    font-size: 0.9rem;
+  }
+  .answer-section,
+  .reference-answer,
+  .tips-section,
+  .extra-note-section {
+    padding: 0.75rem 0.85rem;
+  }
+  .option-item {
+    font-size: 0.9rem;
+  }
+
+  /* 按钮平分一行，保证足够点击宽度 */
+  .btn-row {
+    gap: 0.4rem;
+  }
+  .btn-row button {
+    flex: 1 1 auto;
+  }
+}

@@ -10,6 +10,13 @@
  * 全站颜色只在这里用 CSS 变量定义，其它 CSS / JSX 一律引用变量。
  * ========================================================= */
 
+/* 全局盒模型：统一 border-box，避免 padding/border 撑破容器导致移动端横向滚动 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -22,6 +29,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* 禁止移动端横竖屏切换时自动放大字号 */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 
   /* ---------- 背景层级 ---------- */
   --bg: #12141a;
@@ -95,6 +106,8 @@ body {
   min-height: 100vh;
   background-color: var(--bg);
   color: var(--text);
+  /* 防止个别元素溢出引发整页横向滚动 */
+  overflow-x: hidden;
 }
 
 h1 {
