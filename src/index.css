@@ -1,0 +1,123 @@
+/* =========================================================
+ * 全局基础样式 + 设计令牌（Design Tokens / 配色变量）
+ * ---------------------------------------------------------
+ * 配色遵循「色弱友好 + 高对比」原则：
+ *   1. 深色底 (#12141a)，把正文对比度拉到 ~16:1
+ *   2. 文字分三级，最弱的一级也有 ~7:1 对比
+ *   3. 强调色一律高饱和
+ *   4. 成功/危险除颜色外，界面上还有 ✅/❌ 文字冗余
+ *
+ * 全站颜色只在这里用 CSS 变量定义，其它 CSS / JSX 一律引用变量。
+ * ========================================================= */
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* 强制深色 */
+  color-scheme: dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* ---------- 背景层级 ---------- */
+  --bg: #12141a;
+  --bg-elevated: #1a1d26;
+  --bg-code: #0b0d12;
+  --bg-inset: #0e1015;
+  --surface-1: rgba(255, 255, 255, 0.05);
+  --surface-2: rgba(255, 255, 255, 0.08);
+  --inset: rgba(0, 0, 0, 0.35);
+
+  /* ---------- 边框 ---------- */
+  --border: #2b303c;
+  --border-strong: #3b4252;
+
+  /* ---------- 文字（三级） ---------- */
+  --text: #eef1f6;
+  --text-strong: #ffffff;
+  --text-secondary: #c4cbd8;
+  --text-muted: #99a2b4;
+  --code-text: #d7dbe3;
+
+  /* ---------- 主色 & 强调 ---------- */
+  --accent: #5b8cff;
+  --accent-bright: #82a4ff;
+  --accent-2: #23c8e0;
+  --btn-grad: linear-gradient(90deg, #3d5afe, #7048e8);
+  --accent-shadow: rgba(61, 90, 254, 0.45);
+
+  /* ---------- 语义色 ---------- */
+  --success: #37d67a;
+  --danger: #ff6b57;
+  --warning: #ffb020;
+
+  /* 语义色浅底 */
+  --success-bg: rgba(55, 214, 122, 0.16);
+  --danger-bg: rgba(255, 107, 87, 0.16);
+  --danger-bg-strong: rgba(255, 107, 87, 0.30);
+  --warning-bg: rgba(255, 176, 32, 0.16);
+  --accent-bg: rgba(91, 140, 255, 0.16);
+  --accent-2-bg: rgba(35, 200, 224, 0.14);
+
+  /* 语义色描边 */
+  --accent-border: rgba(91, 140, 255, 0.40);
+  --accent-2-border: rgba(35, 200, 224, 0.40);
+  --success-border: rgba(55, 214, 122, 0.40);
+  --danger-border: rgba(255, 107, 87, 0.40);
+  --warning-border: rgba(255, 176, 32, 0.40);
+
+  /* ---------- 链接 & 焦点 ---------- */
+  --link: #82a4ff;
+  --link-hover: #a9c0ff;
+  --focus-ring: #82a4ff;
+
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+a {
+  font-weight: 500;
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+a:hover {
+  color: var(--link-hover);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--text);
+  background-color: var(--bg-elevated);
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+button:hover {
+  border-color: var(--accent);
+}
+button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}

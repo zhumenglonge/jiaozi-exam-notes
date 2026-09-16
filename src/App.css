@@ -1,0 +1,488 @@
+/* =========================================================
+ * 全局样式 & 首页 & 通用组件样式
+ * ---------------------------------------------------------
+ * 这里只放"跨题组"复用的样式：
+ *   - 页面骨架 (.app / .app-header)
+ *   - 首页目录 (.home / .topic-card)
+ *   - 题目页头 (.topic-header / .back-btn)
+ *   - 通用 UI (.question-card / .option / .answer / .note)
+ *
+ * 每个题组自己的特殊样式，放到 questions/<题组>/styles.css 里。
+ * 所有颜色统一引用 index.css 里定义的 CSS 变量。
+ * ========================================================= */
+
+/* ==================== 全局布局 ==================== */
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 3rem;
+  text-align: left;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+.app-header h1 {
+  font-size: 2rem;
+  margin: 0 0 0.4rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.subtitle {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ==================== 首页：题目分类目录 ==================== */
+.home {
+  animation: fadeIn 0.3s ease-out;
+}
+.home-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0.5rem 0 2rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+.home-stats span b {
+  color: var(--accent-2);
+  font-size: 1.05rem;
+  margin-right: 0.2rem;
+}
+
+.category {
+  margin-bottom: 2rem;
+}
+.category-title {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0 0 0.7rem;
+  padding-left: 0.4rem;
+  border-left: 3px solid var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.topic-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+.topic-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px var(--accent-shadow);
+  background: var(--accent-bg);
+}
+.topic-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.topic-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+.topic-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin: 0;
+}
+.topic-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  margin: 0;
+  line-height: 1.5;
+}
+.topic-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.3rem;
+}
+.tag {
+  font-size: 0.72rem;
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  background: var(--accent-2-bg);
+  color: var(--accent-2);
+  border: 1px solid var(--accent-2-border);
+}
+.tag.difficulty {
+  background: var(--warning-bg);
+  color: var(--warning);
+  border-color: var(--warning-border);
+}
+.topic-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.empty-tip {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 1rem;
+  font-size: 0.95rem;
+}
+
+/* ==================== 题目页头 ==================== */
+.topic-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+.back-btn {
+  padding: 0.4em 0.9em;
+  font-size: 0.85rem;
+  background: var(--surface-2);
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.back-btn:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+}
+.topic-header-info {
+  flex: 1;
+  min-width: 0;
+}
+.topic-header-info h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.topic-header-info p {
+  margin: 0.15rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.loading-fallback {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 4rem 1rem;
+  font-size: 0.95rem;
+}
+
+/* ==================== 通用：题目卡片 ==================== */
+.question-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.2rem;
+  animation: fadeIn 0.25s ease-out;
+}
+.question-card h4 {
+  margin: 0 0 0.8rem;
+  font-size: 1rem;
+  color: var(--text-strong);
+  line-height: 1.6;
+}
+.question-number {
+  display: inline-block;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  margin-right: 0.5rem;
+  border: 1px solid var(--accent-border);
+}
+
+/* ==================== 通用：选项 ==================== */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+.option-item {
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.option-item:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+.option-item.selected {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+.option-item.correct {
+  border-color: var(--success);
+  background: var(--success-bg);
+}
+.option-item.wrong {
+  border-color: var(--danger);
+  background: var(--danger-bg);
+}
+
+/* ==================== 通用：答案 & 解析 ==================== */
+.answer-section {
+  margin-top: 0.8rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--success);
+  background: var(--success-bg);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.answer-section.wrong-answer {
+  border-left-color: var(--danger);
+  background: var(--danger-bg);
+}
+.answer-label {
+  font-weight: 600;
+  color: var(--success);
+  margin-bottom: 0.3rem;
+}
+.answer-section.wrong-answer .answer-label {
+  color: var(--danger);
+}
+
+/* ==================== 通用：笔记 ==================== */
+.note-section {
+  margin-top: 0.8rem;
+}
+.note-section textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-inset);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+.note-section textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.note-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+/* ==================== 通用：按钮行 ==================== */
+.btn-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  flex-wrap: wrap;
+}
+.btn-row button {
+  padding: 0.4em 1em;
+  font-size: 0.85rem;
+}
+.btn-primary {
+  background: var(--btn-grad);
+  border-color: transparent;
+  color: var(--text-strong);
+}
+.btn-primary:hover {
+  box-shadow: 0 4px 14px var(--accent-shadow);
+}
+
+/* ==================== 通用：统计栏 ==================== */
+.stats-bar {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+}
+.stats-bar b {
+  color: var(--accent-2);
+  font-size: 1.05rem;
+}
+
+/* ==================== 通用：题目元信息 ==================== */
+.question-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+.question-source {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+}
+.question-score {
+  font-size: 0.75rem;
+  color: var(--warning);
+  background: var(--warning-bg);
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  border: 1px solid var(--warning-border);
+}
+.question-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0.5rem 0;
+}
+.tag.knowledge-point {
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+/* ==================== 材料分析题专属 ==================== */
+.material-card {
+  padding: 1.4rem 1.6rem;
+}
+.material-section {
+  margin: 1rem 0;
+  padding: 1rem 1.2rem;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.material-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-2);
+  margin-bottom: 0.6rem;
+}
+.material-content p {
+  margin: 0 0 0.8rem;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  text-indent: 2em;
+}
+.material-content p:last-child {
+  margin-bottom: 0;
+}
+.question-stem {
+  margin: 1rem 0;
+  padding: 0.8rem 1rem;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-strong);
+}
+.my-answer-input {
+  min-height: 120px !important;
+}
+
+/* 参考答案区 */
+.reference-answer {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  animation: fadeIn 0.25s ease-out;
+}
+.reference-answer .answer-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--success);
+  margin-bottom: 0.8rem;
+}
+.answer-point {
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+.answer-point:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.point-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+.point-content {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* 答题技巧 */
+.tips-section {
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  border-radius: 8px;
+}
+.tips-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--warning);
+  margin-bottom: 0.3rem;
+}
+.tips-content {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 特殊说明 */
+.extra-note-section {
+  margin-top: 0.8rem;
+  padding: 0.7rem 1rem;
+  background: var(--accent-2-bg);
+  border: 1px solid var(--accent-2-border);
+  border-radius: 8px;
+}
+.extra-note-content {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ==================== 动画 ==================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
