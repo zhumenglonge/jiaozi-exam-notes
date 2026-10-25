@@ -34,6 +34,16 @@ const rawTopics = [
     createdAt: '2026-09-16',
     loader: () => import('./zonghe-suzhi-material/index.jsx'),
   },
+  {
+    id: 'zonghe-changshi',
+    icon: '🐾',
+    title: '综合素质 · 常识图鉴',
+    subtitle: '光看文字记不住的常识考点（生物、地理、名作等），配图一起记，点图可看大图',
+    tags: ['综合素质', '文化素养', '图文'],
+    difficulty: '积累',
+    createdAt: '2026-10-25',
+    loader: () => import('./zonghe-changshi/index.jsx'),
+  },
 
   /* 👇 未来在这里继续加，例如：
   {
