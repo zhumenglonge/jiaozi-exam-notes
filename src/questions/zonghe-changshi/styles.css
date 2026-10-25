@@ -1,0 +1,348 @@
+/* =========================================================
+ * 综合素质 · 常识图鉴 —— 题组专属样式
+ * ---------------------------------------------------------
+ * 只放本组特有内容：考点延伸、配图图鉴、看大图。
+ * 颜色全部引用 index.css 里的 CSS 变量，深色主题下保持高对比。
+ * ========================================================= */
+
+.cs-wrap {
+  animation: fadeIn 0.25s ease-out;
+}
+.cs-wrap .demo-header {
+  margin-bottom: 0.6rem;
+}
+.cs-wrap .demo-header h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+  color: var(--text-strong);
+}
+.cs-wrap .demo-header .desc {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* ==================== 选项内嵌标志图 ==================== */
+/* 选项本身是图标时（如四大认证标志），在选项文字前插一张小图 */
+.option-item .option-mark {
+  width: auto;
+  height: 34px;
+  margin: 0 0.5rem 0 0.4rem;
+  border-radius: 4px;
+  background: #f2f4f7;
+  vertical-align: middle;
+}
+
+/* ==================== 考点延伸 ==================== */
+.exam-points {
+  margin-top: 0.7rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--accent-2);
+  background: var(--accent-2-bg);
+}
+.exam-points-title {
+  margin-bottom: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-2);
+}
+.exam-points ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.exam-points li {
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.exam-points li + li {
+  margin-top: 0.15rem;
+}
+
+/* ==================== 时间线 ==================== */
+.timeline {
+  margin-top: 1.1rem;
+}
+.timeline-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 0.85rem;
+  padding-bottom: 1rem;
+}
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+/* 节点之间的竖线 */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 62px;
+  bottom: 0;
+  width: 2px;
+  background: var(--border-strong);
+}
+.timeline-item:last-child::before {
+  content: none;
+}
+
+.timeline-marker {
+  position: relative;
+  z-index: 1;
+  align-self: start;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid var(--accent-border);
+  border-radius: 50%;
+  background: var(--accent-bg);
+  color: var(--accent-bright);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.timeline-body {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-inset);
+}
+.timeline-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+.timeline-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.timeline-years {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-2);
+}
+.timeline-person {
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.timeline-events {
+  margin: 0.5rem 0 0;
+  padding-left: 1rem;
+}
+.timeline-events li {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+.timeline-verdict {
+  margin: 0.55rem 0 0;
+  padding-top: 0.45rem;
+  border-top: 1px dashed var(--border);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ==================== 配图图鉴 ==================== */
+.animal-gallery {
+  margin-top: 1rem;
+}
+.gallery-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+.gallery-head h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-strong);
+}
+.gallery-head p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.animal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.8rem;
+}
+.animal-card {
+  align-self: start;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-inset);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.animal-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+.animal-card.is-answer {
+  border-color: var(--success-border);
+  box-shadow: 0 0 0 1px var(--success-border);
+}
+
+/* 图片按钮：清掉全局 button 样式，只留点击放大 */
+.animal-photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--bg-code);
+  overflow: hidden;
+  cursor: zoom-in;
+  line-height: 0;
+}
+.animal-photo:hover {
+  border-color: transparent;
+}
+.animal-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.35s ease;
+}
+.animal-photo:hover img {
+  transform: scale(1.04);
+}
+
+/* 竖版长图（如石圭节气图）：限高居中，点开可看全尺寸 */
+.animal-card.is-portrait .animal-photo {
+  background: #eef1f4;
+}
+.animal-card.is-portrait .animal-photo img {
+  width: auto;
+  max-width: 100%;
+  height: 480px;
+  margin: 0 auto;
+}
+.animal-photo:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: -3px;
+}
+
+.animal-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.answer-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.1em 0.55em;
+  border: 1px solid var(--success-border);
+  border-radius: 999px;
+  background: rgba(18, 20, 26, 0.85);
+  color: var(--success);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.animal-card figcaption {
+  padding: 0.7rem 0.8rem 0.8rem;
+}
+.animal-name {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.animal-group {
+  padding: 0.1em 0.5em;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+.animal-traits {
+  margin: 0.45rem 0 0;
+  padding-left: 1rem;
+}
+.animal-traits li {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.animal-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ==================== 看大图 ==================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.84);
+  cursor: zoom-out;
+  animation: fadeIn 0.18s ease-out;
+}
+.lightbox figure {
+  max-width: min(1100px, 100%);
+  margin: 0;
+}
+.lightbox img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+.lightbox figcaption {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+/* ==================== 响应式 ==================== */
+@media (max-width: 480px) {
+  .animal-grid {
+    grid-template-columns: 1fr;
+  }
+  .lightbox {
+    padding: 0.8rem;
+  }
+}

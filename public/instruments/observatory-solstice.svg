@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" role="img" aria-label="登封观星台石圭上的二十四节气刻度示意：影端越靠上越接近夏至，越靠下越接近冬至">
+  <defs>
+    <pattern id="brick" width="90" height="44" patternUnits="userSpaceOnUse">
+      <rect width="90" height="44" fill="#6d6a64"/>
+      <path d="M0 0H90M0 22H90M0 44H90M0 0V22M45 22V44M90 0V22" stroke="#54514c" stroke-width="2.5" fill="none"/>
+    </pattern>
+    <linearGradient id="stone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e6e9ec"/>
+      <stop offset="100%" stop-color="#ccd2d8"/>
+    </linearGradient>
+    <style>
+      .title {
+        font: 600 30px "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        fill: #1f2937;
+        text-anchor: middle;
+      }
+      .jq {
+        font: 600 38px "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        fill: #cf5c15;
+        paint-order: stroke;
+        stroke: #eef1f4;
+        stroke-width: 8px;
+        stroke-linejoin: round;
+      }
+      .jq-key {
+        font-size: 41px;
+        fill: #b8450a;
+      }
+      .anno {
+        font: 500 24px "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        fill: #f2f2f2;
+      }
+      .note {
+        font: 500 22px "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        fill: #6b7488;
+      }
+      .note-title {
+        font: 600 26px "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        fill: #33415c;
+      }
+      .caption {
+        font: 500 25px "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        fill: #33415c;
+        text-anchor: middle;
+      }
+    </style>
+  </defs>
+
+  <rect width="900" height="1200" fill="#eef1f4"/>
+  <text class="title" x="450" y="46">登封观星台 · 石圭与二十四节气</text>
+
+  <!-- 观星台台身（巨型“表”） -->
+  <rect x="150" y="76" width="600" height="230" rx="6" fill="url(#brick)" stroke="#4f4c47" stroke-width="4"/>
+  <!-- 台身中央的表槽：横梁的影子由这里落到圭面 -->
+  <rect x="427" y="76" width="46" height="230" fill="#39352f"/>
+  <text class="anno" x="415" y="200" text-anchor="end">台身 · 巨型“表”</text>
+  <text class="anno" x="485" y="200">横梁影子落入石圭</text>
+
+  <!-- 石圭（量天尺） -->
+  <rect x="300" y="302" width="300" height="810" fill="url(#stone)" stroke="#9aa1a9" stroke-width="3"/>
+  <!-- 圭面上的凹形水渠：取平用，影子落在渠中 -->
+  <rect x="436" y="312" width="28" height="790" fill="#dfe8f4"/>
+  <rect x="446" y="312" width="8" height="790" fill="#4f7bb5"/>
+
+  <!-- 二十四节气刻度线（影长相同者两两成对） -->
+  <g stroke="#ffffff" stroke-width="7" stroke-linecap="round">
+    <line x1="372" y1="420" x2="528" y2="420"/>
+    <line x1="372" y1="475" x2="528" y2="475"/>
+    <line x1="372" y1="530" x2="528" y2="530"/>
+    <line x1="372" y1="585" x2="528" y2="585"/>
+    <line x1="372" y1="640" x2="528" y2="640"/>
+    <line x1="372" y1="695" x2="528" y2="695"/>
+    <line x1="372" y1="750" x2="528" y2="750"/>
+    <line x1="372" y1="805" x2="528" y2="805"/>
+    <line x1="372" y1="860" x2="528" y2="860"/>
+    <line x1="372" y1="915" x2="528" y2="915"/>
+    <line x1="372" y1="970" x2="528" y2="970"/>
+    <line x1="372" y1="1025" x2="528" y2="1025"/>
+    <line x1="372" y1="1080" x2="528" y2="1080"/>
+  </g>
+
+  <!-- 节气名：上端影最短、下端影最长 -->
+  <text class="jq jq-key" x="450" y="433" text-anchor="middle">夏至</text>
+  <text class="jq" x="424" y="488" text-anchor="end">小暑</text>
+  <text class="jq" x="476" y="488">芒种</text>
+  <text class="jq" x="424" y="543" text-anchor="end">大暑</text>
+  <text class="jq" x="476" y="543">小满</text>
+  <text class="jq" x="424" y="598" text-anchor="end">立秋</text>
+  <text class="jq" x="476" y="598">立夏</text>
+  <text class="jq" x="424" y="653" text-anchor="end">处暑</text>
+  <text class="jq" x="476" y="653">谷雨</text>
+  <text class="jq" x="424" y="708" text-anchor="end">白露</text>
+  <text class="jq" x="476" y="708">清明</text>
+  <text class="jq" x="424" y="763" text-anchor="end">秋分</text>
+  <text class="jq" x="476" y="763">春分</text>
+  <text class="jq" x="424" y="818" text-anchor="end">寒露</text>
+  <text class="jq" x="476" y="818">惊蛰</text>
+  <text class="jq" x="424" y="873" text-anchor="end">霜降</text>
+  <text class="jq" x="476" y="873">雨水</text>
+  <text class="jq" x="424" y="928" text-anchor="end">立冬</text>
+  <text class="jq" x="476" y="928">立春</text>
+  <text class="jq" x="424" y="983" text-anchor="end">小雪</text>
+  <text class="jq" x="476" y="983">大寒</text>
+  <text class="jq" x="424" y="1038" text-anchor="end">大雪</text>
+  <text class="jq" x="476" y="1038">小寒</text>
+  <text class="jq jq-key" x="450" y="1093" text-anchor="middle">冬至</text>
+
+  <!-- 读图提示 -->
+  <text class="note-title" x="628" y="470">读图提示</text>
+  <text class="note" x="628" y="510">越靠上 → 越近夏至</text>
+  <text class="note" x="628" y="546">越靠下 → 越近冬至</text>
+  <text class="note" x="628" y="582">左右成对 = 影长相同</text>
+
+  <!-- 底部说明 -->
+  <text class="caption" x="450" y="1152">石圭 · 名“量天尺” · 向北平铺约 31 米</text>
+  <text class="caption" x="450" y="1188" style="font-size: 23px; fill: #6b7488">按正午影长刻出二十四节气，是制定历法的依据</text>
+</svg>

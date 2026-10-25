@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" role="img" aria-label="CCC 中国强制性产品认证标志示意">
+  <rect width="600" height="450" fill="#f2f4f7"/>
+  <ellipse cx="300" cy="225" rx="168" ry="94" fill="none" stroke="#10357f" stroke-width="12"/>
+  <text x="300" y="277" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="112" font-weight="700" letter-spacing="-2" fill="#10357f">CCC</text>
+</svg>
