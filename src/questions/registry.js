@@ -44,6 +44,16 @@ const rawTopics = [
     createdAt: '2026-10-25',
     loader: () => import('./zonghe-changshi/index.jsx'),
   },
+  {
+    id: 'zonghe-lishi-timeline',
+    icon: '🕰️',
+    title: '综合素质 · 历史时间轴',
+    subtitle: '中国历史节点式时间轴：大时期作为轴上节点按时间排列（右端箭头表流向），节点下方以直角连线垂出其内朝代更替（如三国→魏蜀吴、南北朝→南朝/北朝）',
+    tags: ['综合素质', '文化素养', '图解'],
+    difficulty: '积累',
+    createdAt: '2026-11-01',
+    loader: () => import('./zonghe-lishi-timeline/index.jsx'),
+  },
 
   /* 👇 未来在这里继续加，例如：
   {

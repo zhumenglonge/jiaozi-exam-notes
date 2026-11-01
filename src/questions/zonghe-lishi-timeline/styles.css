@@ -1,0 +1,286 @@
+/* =========================================================
+ * 综合素质 · 历史时间轴（横向阶段 + 垂挂事项） —— 题组样式
+ * ---------------------------------------------------------
+ * 顶部一根横向彩色阶段条，每段下方垂出朝代分支。
+ * 颜色引用 index.css 变量；阶段色由组件按序号注入 --sc。
+ * ========================================================= */
+
+.tl-wrap {
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* ==================== 工具条（视窗切换） ==================== */
+.tl-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+.tl-toolbar-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.tl-chip {
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-1);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.tl-chip:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+.tl-chip.on {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  color: var(--accent-bright);
+  font-weight: 600;
+}
+
+.tl-sub-hint {
+  margin: 0 0 0.9rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ==================== 横向阶段流 ==================== */
+.tl-flow {
+  display: flex;
+  align-items: flex-start;
+  overflow-x: auto;
+  /* overflow-x:auto 会连带裁切纵向，节点 hover 放大需留出上/左右空间不被切 */
+  padding: 0.5rem 0.5rem 0.7rem;
+}
+.tl-col {
+  --sc: var(--accent);
+  position: relative;
+  flex: 1 0 auto;
+  min-width: 8.6rem;
+  display: flex;
+  flex-direction: column;
+}
+/* 贯穿各节点的横向时间轴主线（从节点圆心高度穿过） */
+.tl-col::before {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border-strong);
+  z-index: 0;
+}
+/* 轴右端箭头（表示时间向右流逝） */
+.tl-col:last-child::after {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  right: -2px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 9px solid var(--border-strong);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  z-index: 0;
+}
+
+/* 节点圆（坐在轴线上） */
+.tl-node {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2rem;
+  height: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  background: var(--sc);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 1;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.tl-node:hover {
+  transform: scale(1.14);
+}
+.tl-node.hl {
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--sc);
+}
+
+/* 节点下方的阶段名 + 年份：左边缘对齐节点中心（与垂挂主干线同一条竖线） */
+.tl-stage-text {
+  margin-top: 2.4rem;
+  margin-bottom: 0.35rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.tl-stage-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+.tl-stage-name.hl {
+  color: var(--sc);
+}
+.tl-stage-years {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ==================== 垂挂分支 ==================== */
+.tl-drop {
+  position: relative;
+  margin-left: 1rem;
+  padding: 0.3rem 0 0.2rem 0.85rem;
+}
+/* 竖直主干线：收在最后一个事项横线中点处，不在底部多延伸 */
+.tl-drop::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -0.2rem;
+  bottom: 1.2rem;
+  width: 2px;
+  background: var(--sc);
+  opacity: 0.75;
+}
+/* 末子项是子组（如南北朝→北朝）时，再多收 0.2rem 子组内边距 */
+.tl-drop:has(> .tl-sub:last-child)::before {
+  bottom: 1.4rem;
+}
+.tl-item {
+  position: relative;
+  padding: 0.32rem 0;
+}
+/* 事项：从主干引一条横线，与竖主干成 90° 直角（不画竖线、不用圆角） */
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.85rem;
+  height: 2px;
+  background: var(--sc);
+  opacity: 0.75;
+}
+.tl-item-btn {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0.1rem 0.3rem;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.tl-item-btn:hover {
+  background: var(--surface-1);
+  color: var(--text);
+}
+.tl-item-btn.hl {
+  background: var(--sc);
+  color: #fff;
+  font-weight: 700;
+}
+.tl-item-years {
+  font-size: 0.72rem;
+  opacity: 0.75;
+}
+.tl-item-btn.hl .tl-item-years {
+  opacity: 0.9;
+}
+
+/* 子组（如南朝/北朝）：一个小标题 + 再缩进一层 */
+.tl-sub {
+  position: relative;
+  padding: 0.2rem 0;
+}
+.tl-sub::before {
+  content: '';
+  position: absolute;
+  left: -0.85rem;
+  top: 0.72rem;
+  width: 0.85rem;
+  height: 2px;
+  background: var(--sc);
+  opacity: 0.75;
+}
+.tl-sub-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 0.1rem;
+  padding-left: 0.1rem;
+}
+.tl-sub-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.tl-sub-years {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+.tl-sub-branch {
+  position: relative;
+  padding-left: 0.85rem;
+}
+/* 子组内的事项：横线加长，直接 90° 连到唯一的主竖干 */
+.tl-sub-branch .tl-item::before {
+  left: -1.7rem;
+  width: 1.7rem;
+}
+
+/* ==================== 详情卡片 ==================== */
+.tl-info {
+  margin-top: 1rem;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid var(--accent-border);
+  border-radius: 8px;
+  background: var(--accent-bg);
+}
+.tl-info-title {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.tl-info-body {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* ==================== 窄屏适配 ==================== */
+@media (max-width: 640px) {
+  .tl-col {
+    min-width: 7.2rem;
+  }
+  .tl-stage-name {
+    font-size: 0.88rem;
+  }
+  .tl-item-btn {
+    font-size: 0.8rem;
+  }
+}
