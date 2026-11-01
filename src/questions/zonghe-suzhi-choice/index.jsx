@@ -55,6 +55,21 @@ const questions = [
     source: '2024年上半年真题',
     tags: ['文化素养', '传统文化'],
   },
+  {
+    id: 4,
+    stem: 'Excel 某公式中引用了单元格区域 "C3:D7.A2,F1"，该引用包含的单元格总数是（ ）。',
+    options: [
+      { label: 'A', text: '7' },
+      { label: 'B', text: '8' },
+      { label: 'C', text: '9' },
+      { label: 'D', text: '10' },
+    ],
+    answer: 'C',
+    explanation:
+      '按引用运算符优先级「区域(:) > 交集(.) > 联合(,)」拆分：C3:D7 是 2列×5行 = 8 个单元格；A2 这个点落在 C3:D7 矩形外（列 A 在 C、D 左侧，行 2 在 3~7 上方），交集为空贡献 0 个；再联合 F1 加 1 个。总数 = 8 + 0 + 1 = 9。易错点：交集为空不报错，按 0 个算。',
+    source: '信息处理能力考点',
+    tags: ['信息处理能力', 'Excel', '引用运算符'],
+  },
 ]
 
 export default function ZongheSuzhiChoice() {
