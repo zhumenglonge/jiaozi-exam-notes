@@ -54,6 +54,16 @@ const rawTopics = [
     createdAt: '2026-11-01',
     loader: () => import('./zonghe-lishi-timeline/index.jsx'),
   },
+  {
+    id: 'zonghe-kaqing',
+    icon: '📅',
+    title: '综合素质 · 考试日程速览',
+    subtitle: '2027 上半年（小学）报名与考试关键节点、科目安排、报名流程和注意事项；官方公告发布后更新为准确日期',
+    tags: ['综合素质', '考情', '日程'],
+    difficulty: '备忘',
+    createdAt: '2026-11-01',
+    loader: () => import('./zonghe-kaqing/index.jsx'),
+  },
 
   /* 👇 未来在这里继续加，例如：
   {

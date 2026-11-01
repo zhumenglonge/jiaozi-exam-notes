@@ -1,0 +1,217 @@
+/* =========================================================
+ * 综合素质 · 考试日程速览
+ * 深色主题，全部使用全局 CSS 变量（见 src/index.css）
+ * ========================================================= */
+
+.kaqing {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ---------- 顶部横幅 ---------- */
+.kaqing-banner {
+  background: var(--accent-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  text-align: center;
+}
+.kaqing-banner-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+.kaqing-banner-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+}
+.kaqing-banner-sub b {
+  color: var(--warning);
+}
+
+/* ---------- 通用区块 ---------- */
+.kaqing-section-title {
+  font-size: 0.95rem;
+  color: var(--text-strong);
+  margin: 0 0 0.7rem;
+}
+
+/* ---------- 关键节点时间线 ---------- */
+.kaqing-timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 0.2rem;
+}
+/* 纵向主干线 */
+.kaqing-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.85rem;
+  top: 0.8rem;
+  bottom: 0.8rem;
+  width: 2px;
+  background: var(--border-strong);
+}
+.kaqing-node {
+  position: relative;
+  padding-left: 2.2rem;
+  margin-bottom: 0.9rem;
+}
+.kaqing-node:last-child {
+  margin-bottom: 0;
+}
+.kaqing-node-dot {
+  position: absolute;
+  left: 0.25rem;
+  top: 0.45rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  background: var(--btn-grad);
+  z-index: 1;
+}
+.kaqing-node-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+}
+.kaqing-node-card:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+.kaqing-node-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.kaqing-node-head b {
+  color: var(--text-strong);
+  font-size: 0.95rem;
+}
+.kaqing-when {
+  font-size: 0.82rem;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+.kaqing-when.est {
+  color: var(--warning);
+}
+.kaqing-node-detail {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  margin: 0.35rem 0 0;
+  line-height: 1.5;
+}
+.kaqing-node-ref {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0.25rem 0 0;
+}
+
+/* ---------- 科目卡片 ---------- */
+.kaqing-subjects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.8rem;
+}
+.kaqing-subject-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+}
+.kaqing-subject-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.kaqing-subject-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+.kaqing-subject-code {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  background: var(--accent-2-bg);
+  color: var(--accent-2);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.kaqing-subject-tips {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin: 0.5rem 0 0;
+  line-height: 1.55;
+}
+.kaqing-footnote {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0.6rem 0 0;
+}
+
+/* ---------- 报名流程 ---------- */
+.kaqing-steps {
+  margin: 0;
+  padding-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.kaqing-steps li {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+.kaqing-steps li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ---------- 注意事项 ---------- */
+.kaqing-reminders {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.kaqing-reminder {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-1);
+  color: var(--text-secondary);
+}
+.kaqing-reminder.info {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+.kaqing-reminder.warn {
+  border-color: var(--warning);
+  color: var(--warning);
+  background: var(--warning-bg);
+}
+.kaqing-reminder.danger {
+  border-color: var(--danger);
+  color: var(--danger);
+  background: var(--danger-bg);
+}
