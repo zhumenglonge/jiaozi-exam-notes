@@ -15,6 +15,16 @@ import { lazy } from 'react'
 
 const rawTopics = [
   {
+    id: 'zonghe-xueshengguan-note',
+    icon: '🧠',
+    title: '综合素质 · 学生观背诵笔记',
+    subtitle: '「两独一发」口诀背学生观：三条展开、独特 vs 独立易混对比、材料分析模板与易踩坑，考前照着默写',
+    tags: ['教材', '背诵笔记', '职业理念'],
+    difficulty: '重点',
+    createdAt: '2026-11-06',
+    loader: () => import('./zonghe-xueshengguan-note/index.jsx'),
+  },
+  {
     id: 'zonghe-suzhi-choice',
     icon: '📖',
     title: '综合素质 · 单选题',

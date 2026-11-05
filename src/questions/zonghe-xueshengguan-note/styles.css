@@ -1,0 +1,284 @@
+/* =========================================================
+ * 综合素质 · 学生观背诵笔记
+ * 深色主题，全部使用全局 CSS 变量（见 src/index.css）
+ * ========================================================= */
+
+.xsg {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ---------- 顶部口诀横幅 ---------- */
+.xsg-banner {
+  background: var(--accent-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+}
+.xsg-banner-title {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+.xsg-mnemonic {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 0.35em;
+  padding-left: 0.35em; /* 补偿字距，保持视觉居中 */
+  background: var(--btn-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0.4rem 0 0.9rem;
+}
+.xsg-parts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.6rem;
+}
+.xsg-part {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.6rem 0.5rem;
+}
+.xsg-part-char {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--accent-2);
+}
+.xsg-part-mean {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+  line-height: 1.45;
+}
+.xsg-banner-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.9rem;
+}
+
+/* ---------- 通用区块 ---------- */
+.xsg-section-title {
+  font-size: 0.95rem;
+  color: var(--text-strong);
+  margin: 0 0 0.7rem;
+}
+.xsg-lead {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.7rem;
+  line-height: 1.55;
+}
+
+/* ---------- 三条展开 ---------- */
+.xsg-item {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+}
+.xsg-item:last-child {
+  margin-bottom: 0;
+}
+.xsg-item:hover {
+  border-color: var(--accent);
+}
+.xsg-item-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-strong);
+}
+.xsg-item-num {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent-bright);
+}
+.xsg-bullets {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.xsg-bullets li {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.xsg-bullets li::marker {
+  color: var(--accent);
+}
+.xsg-bullets b,
+.xsg-catch b,
+.xsg-trap-text b,
+.xsg-trap-solve b,
+.xsg-steps b,
+.xsg-pitfall b {
+  color: var(--text-strong);
+}
+
+/* 题干关键词提示行 */
+.xsg-catch {
+  font-size: 0.83rem;
+  line-height: 1.55;
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  border: 1px dashed var(--accent-2);
+  background: var(--accent-2-bg);
+  color: var(--text-secondary);
+}
+
+/* ---------- 独特 vs 独立 ---------- */
+.xsg-vs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.8rem;
+}
+.xsg-vs-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+}
+.xsg-vs-card:hover {
+  border-color: var(--accent);
+}
+.xsg-vs-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+.xsg-vs-ask {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  line-height: 1.5;
+}
+.xsg-vs-core {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.15em 0.7em;
+  border-radius: 999px;
+  background: var(--accent-2-bg);
+  color: var(--accent-2);
+  border: 1px solid var(--border);
+  margin-top: 0.45rem;
+}
+
+/* 挖坑题干 */
+.xsg-trap {
+  margin-top: 0.8rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--warning);
+  background: var(--warning-bg);
+}
+.xsg-trap-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--warning);
+}
+.xsg-trap-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: 0.35rem;
+}
+.xsg-trap-solve {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: 0.3rem;
+}
+.xsg-trap + .xsg-catch {
+  margin-top: 0.8rem;
+}
+
+/* ---------- 材料分析模板 ---------- */
+.xsg-steps {
+  margin: 0;
+  padding-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.xsg-steps li {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.xsg-steps li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+.xsg-motto {
+  margin-top: 0.8rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  background: var(--accent-bg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+.xsg-motto-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent-bright);
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- 踩坑提醒 ---------- */
+.xsg-pitfalls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.8rem;
+}
+.xsg-pitfall {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--danger);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+}
+.xsg-pitfall b {
+  font-size: 0.9rem;
+}
+.xsg-pitfall p {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0.35rem 0 0;
+}
+
+/* ---------- 尾部默写清单 ---------- */
+.xsg-final {
+  background: var(--accent-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  text-align: center;
+}
+.xsg-final-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+.xsg-final p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0.4rem 0 0;
+}
